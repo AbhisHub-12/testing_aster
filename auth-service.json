@@ -1,0 +1,45 @@
+// File 1: 
+{
+  "flavor": "default",
+  "lifecycle": "ENVIRONMENT",
+  "metadata": {
+    "name": "auth-service"
+  },
+  "depends_on": [],
+  "kind": "service",
+  "disabled": false,
+  "version": "1.0.0",
+  "spec": {
+    "env": {
+      "DEBUG": true,
+      "PORT": 8080,
+      "TIMEOUT": 30.5,
+      "FEATURES": ["auth", "logging", "metrics"],
+      "DATABASE_CONFIG": {
+        "host": "localhost",
+        "port": 5432,
+        "ssl": true,
+        "pool_size": 10
+      },
+      "REDIS_CONFIG": {
+        "enabled": true,
+        "ttl": 3600,
+        "cluster": false
+      },
+      "API_KEYS": ["key1", "key2", "key3"],
+      "RATE_LIMIT": 100,
+      "ENABLE_CORS": false,
+      "JWT_EXPIRY": 86400
+    },
+    "resources": {
+      "cpu": "500m",
+      "memory": "512Mi"
+    },
+    "replicas": 3,
+    "health_check": {
+      "enabled": true,
+      "interval": 30,
+      "retries": 3
+    }
+  }
+}
