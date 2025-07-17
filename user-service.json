@@ -1,40 +1,50 @@
-
 {
   "flavor": "default",
   "lifecycle": "ENVIRONMENT",
   "metadata": {
     "name": "user-service"
   },
-  "depends_on": ["auth-service"],
+  "depends_on": [
+    "auth-service"
+  ],
   "kind": "service",
-  "disabled": false,
+  "disabled": "false",
   "version": "1.5.2",
   "spec": {
     "env": {
-      "USER_CACHE_TTL": 300,
-      "ENABLE_REGISTRATION": true,
-      "MIN_PASSWORD_LENGTH": 8,
-      "ALLOWED_DOMAINS": ["example.com", "test.com"],
+      "USER_CACHE_TTL": "300",
+      "ENABLE_REGISTRATION": "true",
+      "MIN_PASSWORD_LENGTH": "8",
+      "ALLOWED_DOMAINS": [
+        "example.com",
+        "test.com"
+      ],
       "SESSION_CONFIG": {
-        "duration": 3600,
-        "secure": true,
+        "duration": "3600",
+        "secure": "true",
         "same_site": "strict"
       },
       "NOTIFICATION_CONFIG": {
-        "email": true,
-        "sms": false,
-        "push": true
+        "email": "true",
+        "sms": "false",
+        "push": "true"
       },
-      "PROFILE_FIELDS": ["name", "email", "phone"],
-      "ENABLE_2FA": false,
-      "MAX_LOGIN_ATTEMPTS": 5,
-      "LOCKOUT_DURATION": 900,
-      "ADMIN_USERS": ["admin@example.com"]
+      "PROFILE_FIELDS": [
+        "name",
+        "email",
+        "phone"
+      ],
+      "ENABLE_2FA": "false",
+      "MAX_LOGIN_ATTEMPTS": "5",
+      "LOCKOUT_DURATION": "900",
+      "ADMIN_USERS": [
+        "admin@example.com"
+      ]
     },
     "resources": {
       "cpu": "250m",
       "memory": "256Mi"
     },
-    "replicas": 2
+    "replicas": "2"
   }
 }

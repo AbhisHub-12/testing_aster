@@ -1,46 +1,55 @@
-
 {
   "flavor": "production",
   "lifecycle": "ENVIRONMENT",
   "metadata": {
     "name": "payment-service"
   },
-  "depends_on": ["auth-service"],
+  "depends_on": [
+    "auth-service"
+  ],
   "kind": "service",
-  "disabled": false,
+  "disabled": "false",
   "version": "2.1.0",
   "spec": {
     "env": {
       "PAYMENT_GATEWAY": "stripe",
-      "SANDBOX_MODE": true,
-      "MAX_AMOUNT": 10000.50,
-      "CURRENCIES": ["USD", "EUR", "GBP"],
+      "SANDBOX_MODE": "true",
+      "MAX_AMOUNT": "10000.5",
+      "CURRENCIES": [
+        "USD",
+        "EUR",
+        "GBP"
+      ],
       "WEBHOOK_CONFIG": {
-        "enabled": true,
+        "enabled": "true",
         "url": "https://api.example.com/webhook",
         "secret": "webhook_secret_123"
       },
       "RETRY_CONFIG": {
-        "max_attempts": 5,
-        "backoff_multiplier": 2.0,
-        "initial_delay": 1000
+        "max_attempts": "5",
+        "backoff_multiplier": "2.0",
+        "initial_delay": "1000"
       },
-      "SUPPORTED_METHODS": ["card", "bank", "wallet"],
-      "ENABLE_LOGGING": true,
+      "SUPPORTED_METHODS": [
+        "card",
+        "bank",
+        "wallet"
+      ],
+      "ENABLE_LOGGING": "true",
       "LOG_LEVEL": "INFO",
-      "BATCH_SIZE": 50,
-      "PROCESSING_TIMEOUT": 30000
+      "BATCH_SIZE": "50",
+      "PROCESSING_TIMEOUT": "30000"
     },
     "resources": {
       "cpu": "1000m",
       "memory": "1Gi"
     },
-    "replicas": 5,
+    "replicas": "5",
     "auto_scaling": {
-      "enabled": true,
-      "min_replicas": 2,
-      "max_replicas": 10,
-      "target_cpu": 70
+      "enabled": "true",
+      "min_replicas": "2",
+      "max_replicas": "10",
+      "target_cpu": "70"
     }
   }
 }
